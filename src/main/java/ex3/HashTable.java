@@ -54,18 +54,13 @@ public class HashTable {
         if(entries[hash] != null) {
             HashEntry temp = entries[hash];
 
-            temp = getHashEntry(key, temp);
+            while( !temp.key.equals(key))
+                temp = temp.next;
 
             return temp.value;
         }
 
         return null;
-    }
-
-    private HashEntry getHashEntry(String key, HashEntry temp) {
-        while( !temp.key.equals(key))
-            temp = temp.next;
-        return temp;
     }
 
     /**
